@@ -1,11 +1,12 @@
 
-## JokesBox
-##### Live: [JokesBox](https://meghsohor.github.io/jokesbox/)
-<hr>
-![JokesBox - React, Fetch API & JokeAPI](https://raw.githubusercontent.com/meghsohor/jokesbox/master/public/images/screenshot.jpg)
+## JokesBox (React, Fetch API & JokeAPI)
+### Live: [JokesBox](https://meghsohor.github.io/jokesbox/)
+
 <hr>
 
-#### Created using React, Fetch API & JokeAPI
+![JokesBox - React, Fetch API & JokeAPI](https://raw.githubusercontent.com/meghsohor/jokesbox/master/public/images/screenshot.jpg)
+
+<hr>
 
 ### Features:
 
@@ -17,7 +18,7 @@
  To know more, please check MDN: [AbortController](https://developer.mozilla.org/en-US/docs/Web/API/AbortController)
 
  
- ### Run the app locally:
+ ### Run the app in local environment:
 
  1. Clone the Repo
  2. Open Terminal window in the project folder
