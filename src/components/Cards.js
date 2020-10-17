@@ -19,7 +19,7 @@ const Cards = ({jokes, isLoading}) => {
                 {joke.delivery && <p><strong>Ans: </strong> {joke.delivery}</p>}
                 {joke.joke && <p>{joke.joke}</p>}
 
-                <img src={joke.joke ? '/images/lightbulb.svg' : '/images/question.svg'}  alt=""/>
+                <img src={joke.joke ? './images/lightbulb.svg' : './images/question.svg'}  alt=""/>
             </motion.div> 
         ))
       }
