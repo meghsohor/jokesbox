@@ -2,7 +2,7 @@
 ## JokesBox
 ##### Live: [JokesBox](https://meghsohor.github.io/jokesbox/)
 <hr>
-![enter image description here](https://raw.githubusercontent.com/meghsohor/jokesbox/master/public/images/screenshot.jpg)
+![JokesBox - React, Fetch API & JokeAPI](https://raw.githubusercontent.com/meghsohor/jokesbox/master/public/images/screenshot.jpg)
 <hr>
 
 #### Created using React, Fetch API & JokeAPI
