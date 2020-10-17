@@ -1,13 +1,392 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('//fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&display=swap');
+
+:root{
+  --primary: #efb6b2;
+  --secondary: #4e4e4e;
+  --error: #ff4a4a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* base styles & title */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body{
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  margin: 0;
+  background: #fff6f6;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+}
+
+.App{
+  max-width: 980px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.title {
+  padding-top: 10px;
+  margin-bottom: 2rem;
+}
+.title h1{
+  color: var(--primary);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+.title h2 {
+  text-align: center;
+}
+.title h2{
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+
+/*----- Search ------*/
+.search {
+  max-width: 350px;
+  margin: 0 auto 80px;
+}
+.search input {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  color: var(--secondary);
+  background: transparent;
+  border: 1px solid #e6b0b0;
+  border-radius: 10px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: all 0.25s;
+}
+
+.search input:focus {
+  box-shadow: 0px 0px 10px 0px rgba(255, 125, 120, 0.35);
+  outline: 0;
+}
+
+/*----- Card ------*/
+.card {
+  padding: 30px;
+  padding-right: 120px;
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: #bd5656;
+  background: #ffebeb;
+  border: 2px solid #fddada;
+  border-radius: 10px;
+  position: relative;
+}
+
+.card img {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 100px;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
+
+.card p {
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+
+/*----------- Loader CSS --------------*/
+.loader {
+  --background: linear-gradient(135deg, #ffc3c3, #ff9d96);
+  --shadow: rgba(255, 125, 120, 0.28);
+  --text: #6C7486;
+  --page: rgba(255, 255, 255, 0.36);
+  --page-fold: rgba(255, 255, 255, 0.52);
+  --duration: 3s;
+  width: 200px;
+  height: 140px;
+  position: relative;
+  margin: 0 auto;
+}
+.loader:before, .loader:after {
+  --r: -6deg;
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  width: 120px;
+  top: 80%;
+  box-shadow: 0 16px 12px var(--shadow);
+  -webkit-transform: rotate(var(--r));
+          transform: rotate(var(--r));
+}
+.loader:before {
+  left: 4px;
+}
+.loader:after {
+  --r: 6deg;
+  right: 4px;
+}
+.loader div {
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  position: relative;
+  z-index: 1;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  box-shadow: 0 4px 6px var(--shadow);
+  background-image: var(--background);
+}
+.loader div ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+.loader div ul li {
+  --r: 180deg;
+  --o: 0;
+  --c: var(--page);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  color: var(--c);
+  opacity: var(--o);
+  -webkit-transform: rotateY(var(--r));
+          transform: rotateY(var(--r));
+  -webkit-animation: var(--duration) ease infinite;
+          animation: var(--duration) ease infinite;
+}
+.loader div ul li:nth-child(2) {
+  --c: var(--page-fold);
+  -webkit-animation-name: page-2;
+          animation-name: page-2;
+}
+.loader div ul li:nth-child(3) {
+  --c: var(--page-fold);
+  -webkit-animation-name: page-3;
+          animation-name: page-3;
+}
+.loader div ul li:nth-child(4) {
+  --c: var(--page-fold);
+  -webkit-animation-name: page-4;
+          animation-name: page-4;
+}
+.loader div ul li:nth-child(5) {
+  --c: var(--page-fold);
+  -webkit-animation-name: page-5;
+          animation-name: page-5;
+}
+.loader div ul li svg {
+  width: 90px;
+  height: 120px;
+  display: block;
+}
+.loader div ul li:first-child {
+  --r: 0deg;
+  --o: 1;
+}
+.loader div ul li:last-child {
+  --o: 1;
+}
+.loader span {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+@-webkit-keyframes page-2 {
+  0% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  35%,
+        100% {
+    opacity: 0;
+  }
+  50%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes page-2 {
+  0% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  35%,
+        100% {
+    opacity: 0;
+  }
+  50%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@-webkit-keyframes page-3 {
+  15% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  50%,
+        100% {
+    opacity: 0;
+  }
+  65%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@keyframes page-3 {
+  15% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  50%,
+        100% {
+    opacity: 0;
+  }
+  65%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@-webkit-keyframes page-4 {
+  30% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  65%,
+        100% {
+    opacity: 0;
+  }
+  80%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@keyframes page-4 {
+  30% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  65%,
+        100% {
+    opacity: 0;
+  }
+  80%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@-webkit-keyframes page-5 {
+  45% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  80%,
+        100% {
+    opacity: 0;
+  }
+  95%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@keyframes page-5 {
+  45% {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  80%,
+        100% {
+    opacity: 0;
+  }
+  95%,
+        100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+/*------------ Responsive CSS ---------------*/
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 3rem;
+  }
+  .title h1 {
+    text-align: center;
+    background: #ffebeb;
+    padding: 10px;
+    border: 1px solid currentColor;
+    border-radius: 10px;
+  }
+  .search {
+    margin-bottom: 50px;
+  }
+  .card {
+    padding: 15px;
+    padding-top: 30px;
+  }
+  .card img {
+    top: 5px;
+    right: 2px;
+    width: 30px;
+    transform: none;
+    opacity: 0.8;
+  }
 }
